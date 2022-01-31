@@ -1,0 +1,17 @@
+var client = new RestClient("https://api.stage.fetchdocs.io");
+client.Timeout = -1;
+var request = new RestRequest(Method.POST);
+request.AddHeader("Content-Type", "application/json");
+request.AddHeader("Cookie", "UWA_SID=ppnq994ftus21ki8fkos25j1f7");
+var body = @"{
+" + "\n" +
+@"    ""environment_prim_uid"":144,
+" + "\n" +
+@"    ""api_key"":""ASWZ-3U19-5N0P-YKZR-10BN-R2IO-90NH-SNWY"",
+" + "\n" +
+@"    ""api_checksum"":""49c4uy4omuwzrlui6h8he9od6siv4veh""
+" + "\n" +
+@"}";
+request.AddParameter("application/json", body,  ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+Console.WriteLine(response.Content);
